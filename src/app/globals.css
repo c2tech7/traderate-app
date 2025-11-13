@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --background: 250 49% 98%;
+  --foreground: 222 47% 11%;
+  --muted: 219 33% 92%;
+  --card: 0 0% 100%;
+  --brand: 215 85% 55%;
+  --brand-accent: 189 92% 55%;
+  --shell-gradient: radial-gradient(
+      circle at 10% 20%,
+      hsl(215 85% 65% / 0.35),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      hsl(280 72% 65% / 0.25),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      hsl(189 88% 60% / 0.25),
+      transparent 50%
+    );
+}
+
+:root.dark {
+  color-scheme: dark;
+  --background: 222 47% 7%;
+  --foreground: 220 40% 96%;
+  --muted: 222 33% 15%;
+  --card: 222 33% 13%;
+  --brand: 205 84% 64%;
+  --brand-accent: 268 89% 70%;
+  --shell-gradient: radial-gradient(
+      circle at 15% 25%,
+      hsl(210 90% 60% / 0.4),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 70% 15%,
+      hsl(266 84% 60% / 0.34),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      hsl(189 88% 55% / 0.25),
+      transparent 45%
+    );
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted: hsl(var(--muted));
+  --color-card: hsl(var(--card));
+  --color-brand: hsl(var(--brand));
+  --color-brand-accent: hsl(var(--brand-accent));
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  min-height: 100vh;
+  background-color: hsl(var(--background));
+  background-image: var(--shell-gradient);
+  color: hsl(var(--foreground));
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  margin: 0;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.glass-panel {
+  background-color: color-mix(in oklab, hsl(var(--card)), transparent 20%);
+  border: 1px solid color-mix(in oklab, hsl(var(--foreground)), transparent 80%);
+  box-shadow: 0 20px 60px hsl(var(--brand) / 0.1);
+  backdrop-filter: blur(22px);
+}
