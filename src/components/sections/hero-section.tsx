@@ -58,7 +58,7 @@ export function HeroSection({ onShareReview }: HeroSectionProps) {
         transition={{ delay: 0.25 }}
       >
         <Link
-          href="#companies"
+          href="/#companies"
           className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-blue-500/30 transition hover:scale-[1.01]"
         >
           Browse companies
