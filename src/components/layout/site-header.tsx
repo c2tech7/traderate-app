@@ -6,9 +6,9 @@ import { ThemeToggle } from "../theme-toggle";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#companies", label: "Companies" },
-  { href: "#leaderboard", label: "Leaderboard" },
-  { href: "#contact", label: "Feedback" },
+  { href: "/#companies", label: "Companies" },
+  { href: "/#leaderboard", label: "Leaderboard" },
+  { href: "/#contact", label: "Feedback" },
 ];
 
 export function SiteHeader() {
