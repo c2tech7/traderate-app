@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify Forms Workaround</title>
+  </head>
+  <body>
+    <!-- Netlify forms detection shim for Next.js runtime -->
+    <form name="feedback" netlify data-netlify="true">
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
