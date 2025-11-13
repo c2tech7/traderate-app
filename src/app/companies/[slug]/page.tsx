@@ -4,17 +4,18 @@ import { companies, findCompanyBySlug } from "@/data/companies";
 import { CompanyDetail } from "@/components/sections/company-detail";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
   return companies.map((company) => ({ slug: company.slug }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const company = findCompanyBySlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const company = findCompanyBySlug(slug);
 
   if (!company) {
     return {
@@ -28,8 +29,9 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function CompanyPage({ params }: Props) {
-  const company = findCompanyBySlug(params.slug);
+export default async function CompanyPage({ params }: Props) {
+  const { slug } = await params;
+  const company = findCompanyBySlug(slug);
 
   if (!company) {
     notFound();
